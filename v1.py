@@ -80,11 +80,7 @@ def preprocess(text):
   txt_seq = []
   count = max(word2idx_inputs_frontend.values()) + 1
   for each in lst1:
-    '''try:
-      temp = word2idx_inputs_frontend[each]
-    except:
-      temp_lst = glove_vectors.most_similar(each)
-      temp = temp_lst[0][0]'''
+ 
     if each not in word2idx_inputs_frontend.keys():
 
       word2idx_inputs_frontend[each] = count
