@@ -34,15 +34,6 @@ reconstructed_decoder.compile(
     loss='categorical_crossentropy',
     metrics=['accuracy']
 )
-
-with open("dict1.json", "w") as outfile:
-    json.dump(word2idx_outputs, outfile)
-
-with open("dict2.json", "w") as outfile:
-    json.dump(idx2word_target, outfile)
-
-with open("dict3.json", "w") as outfile:
-    json.dump(word2idx_inputs, outfile)
     
 a = open("dict1.json")
 word2idx_outputs_frontend = json.load(a)
