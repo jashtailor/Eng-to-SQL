@@ -115,7 +115,7 @@ if st.button(label="Submit"):
   try:
     st.write('Hello World')
   except:
-    pass
+    st.write('Error')
 else:
   pass
 
