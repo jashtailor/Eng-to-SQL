@@ -113,7 +113,8 @@ input = st.text_input('Enter your question in English')
  
 if st.button(label="Submit"):
   try:
-    st.write('Hello World')
+    answer = preprocess(input)
+    st.write(answer)
   except:
     st.write('Error')
 else:
