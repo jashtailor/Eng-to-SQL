@@ -76,7 +76,7 @@ def translate_sentence(input_seq):
 def preprocess(text):
   text1 = text.lower()
   lst1 = text1.split(' ')
-  # print(lst1)
+
   txt_seq = []
   count = max(word2idx_inputs_frontend.values()) + 1
   for each in lst1:
@@ -88,12 +88,12 @@ def preprocess(text):
     else:
       temp = word2idx_inputs_frontend[each]
     txt_seq.append(temp)
-  # print(txt_seq)
+
   if len(txt_seq)<46:
     lst2 = [[0]*(46-len(txt_seq)) + txt_seq]
-  # print(lst2)
+
   translation = translate_sentence(lst2)
-  # print(translation)
+
   return translation
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
