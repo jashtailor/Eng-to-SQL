@@ -111,3 +111,11 @@ input = st.text_input('Enter your question in English')
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
  
+if st.button(label="Submit"):
+  try:
+    ans = preprocess(input)
+    st.write(ans)
+  except:
+    st.write('Error')
+else:
+  pass
