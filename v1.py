@@ -104,17 +104,7 @@ def transcribe(audio_file):
     
     # Upload audio file to AssemblyAI
     filename = audio_file
-    
-    '''
-    def read_file(audio_file, chunk_size=5242880):
-        with open(file_name, 'rb') as _file:
-            while True:
-                data = _file.read(chunk_size)
-                if not data:
-                    break
-                yield data
-    '''    
- 
+     
     headers = {'authorization': api_key}
     response = requests.post('https://api.assemblyai.com/v2/upload',
                          headers=headers,
@@ -180,9 +170,12 @@ st.write("You can use this link to record an audio [link](%s)" % url)
 uploaded_files = st.file_uploader("Choose a .mp3 file", accept_multiple_files=True)
 for uploaded_file in uploaded_files:
     audio(uploaded_file)
+    
     if st.button(label="Transcribe .mp3 file"):
         transcribed = transcribe(uploaded_file)
+        
         input = st.text_input('Transcribed text:', transcribed)
+        
         if st.button(label="Generate SQL query"):
             try:
                 answer = preprocess(input)
