@@ -96,6 +96,13 @@ def preprocess(text):
 
   return translation
 
+def audio(audio_file):
+    audio_bytes = audio_file.read()
+
+    st.audio(audio_bytes, format='audio/ogg')
+    
+    return 0
+
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # design elements
@@ -111,6 +118,7 @@ for uploaded_file in uploaded_files:
      bytes_data = uploaded_file.read()
      st.write("filename:", uploaded_file.name)
      # st.write(bytes_data)
+     audio(uploaded_file)
     
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
