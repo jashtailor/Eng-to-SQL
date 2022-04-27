@@ -113,15 +113,10 @@ English-To-SQL
 # input = st.text_input('Enter your question in English')
 url = "https://online-voice-recorder.com/"
 st.write("You can use this link to record an audio [link](%s)" % url)
-if uploaded_files = st.file_uploader("Choose a .mp3 file", accept_multiple_files=True):
-    audio(uploaded_file)
-'''
+uploaded_files = st.file_uploader("Choose a .mp3 file", accept_multiple_files=True)
 for uploaded_file in uploaded_files:
-     bytes_data = uploaded_file.read()
-     st.write("filename:", uploaded_file.name)
-     # st.write(bytes_data)
      audio(uploaded_file)
-'''    
+ 
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
