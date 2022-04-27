@@ -96,6 +96,63 @@ def preprocess(text):
 
   return translation
 
+def transcribe(audio_file):
+    api_key = "7dceeb758cb7442481d1927aa97a4ad6"
+    
+    # Upload audio file to AssemblyAI
+    filename = audio_file
+    
+    def read_file(filename, chunk_size=5242880):
+        with open(filename, 'rb') as _file:
+            while True:
+                data = _file.read(chunk_size)
+                if not data:
+                    break
+                yield data
+ 
+    headers = {'authorization': api_key}
+    response = requests.post('https://api.assemblyai.com/v2/upload',
+                         headers=headers,
+                         data=read_file(filename))
+
+    audio_url = response.json()['upload_url']
+    
+    # Transcribe uploaded audio file
+    endpoint = "https://api.assemblyai.com/v2/transcript"
+
+    json = {
+        "audio_url": audio_url
+        }
+
+    headers = {
+        "authorization": api_key,
+        "content-type": "application/json"
+        }
+
+    transcript_input_response = requests.post(endpoint, json=json, headers=headers)
+    
+    # Extract transcript ID
+    transcript_id = transcript_input_response.json()["id"]
+    
+    # Retrieve transcription results
+    endpoint = f"https://api.assemblyai.com/v2/transcript/{transcript_id}"
+    headers = {
+        "authorization": api_key,
+        }
+
+    transcript_output_response = requests.get(endpoint, headers=headers)
+    
+    # Check if transcription is complete
+    while transcript_output_response.json()['status'] != 'completed':
+        sleep(5)
+        # print('Transcription is processing ...')
+        transcript_output_response = requests.get(endpoint, headers=headers)
+        
+    # Print transcribed text
+    st.write(transcript_output_response.json()["text"])
+    
+    
+
 def audio(audio_file):
     audio_bytes = audio_file.read()
 
@@ -113,16 +170,15 @@ English-To-SQL
 # input = st.text_input('Enter your question in English')
 url = "https://online-voice-recorder.com/"
 st.write("You can use this link to record an audio [link](%s)" % url)
+
 uploaded_files = st.file_uploader("Choose a .mp3 file", accept_multiple_files=True)
 for uploaded_file in uploaded_files:
      audio(uploaded_file)
- 
 
-# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+if st.button(label="Transcribe .mp3 file"):
+    transcribe(uploaded_files)
 
-
-
-if st.button(label="Submit"):
+if st.button(label="Generate SQL query"):
   try:
     answer = preprocess(input)
     st.write(answer)
@@ -130,4 +186,10 @@ if st.button(label="Submit"):
     st.write('Error')
 else:
   pass
+ 
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
 
