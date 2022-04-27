@@ -184,7 +184,7 @@ for uploaded_file in uploaded_files:
     audio(uploaded_file)
     if st.button(label="Transcribe .mp3 file"):
         transcribed = transcribe(uploaded_file)
-        input = st.text_input('Transcribed text:', transcript_output_response.json()["text"])
+        input = st.text_input('Transcribed text:', transcribed)
         if st.button(label="Generate SQL query"):
             try:
                 answer = preprocess(input)
