@@ -105,6 +105,7 @@ def transcribe(audio_file):
     # Upload audio file to AssemblyAI
     filename = audio_file
     
+    '''
     def read_file(filename, chunk_size=5242880):
         with open(filename, 'rb') as _file:
             while True:
@@ -112,6 +113,7 @@ def transcribe(audio_file):
                 if not data:
                     break
                 yield data
+    '''
  
     headers = {'authorization': api_key}
     response = requests.post('https://api.assemblyai.com/v2/upload',
