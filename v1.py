@@ -150,6 +150,7 @@ def transcribe(audio_file):
         
     # Print transcribed text
     st.write(transcript_output_response.json()["text"])
+    return transcript_output_response.json()["text"]
     
     
 
@@ -176,16 +177,16 @@ for uploaded_file in uploaded_files:
      audio(uploaded_file)
 
 if st.button(label="Transcribe .mp3 file"):
-    transcribe(uploaded_files)
-
-if st.button(label="Generate SQL query"):
-  try:
-    answer = preprocess(input)
-    st.write(answer)
-  except:
-    st.write('Error')
-else:
-  pass
+    transcribed = transcribe(uploaded_files)
+    title = st.text_input('Transcribed text:', transcript_output_response.json()["text"])
+    if st.button(label="Generate SQL query"):
+        try:
+            answer = preprocess(input)
+            st.write(answer)
+        except:
+            st.write('Error')
+    else:
+        pass
  
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
