@@ -147,11 +147,13 @@ def transcribe(audio_file):
 
     transcript_output_response = requests.get(endpoint, headers=headers)
     
+    '''
     # Check if transcription is complete
     while transcript_output_response.json()['status'] != 'completed':
         sleep(5)
         # print('Transcription is processing ...')
         transcript_output_response = requests.get(endpoint, headers=headers)
+    '''
         
     # Print transcribed text
     st.write(transcript_output_response.json()["text"])
