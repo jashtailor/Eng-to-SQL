@@ -97,6 +97,7 @@ def preprocess(text):
     lst2 = [[0]*(46-len(txt_seq)) + txt_seq]
 
   translation = translate_sentence(lst2)
+  st.write(translation)
 
   return translation
 
@@ -256,13 +257,16 @@ for uploaded_file in uploaded_files:
             st.write('Error .mp3 file could not be transcribed please manually enter your text')
             input = st.text_input('English question:')
             if st.button(label="Generate SQL query"):
+                answer = preprocess(input)
+                st.write(answer)
+                '''
                 try:
                     answer = preprocess(input)
                     st.write(answer)
                 except:
                     st.write('Error')
             else:
-                pass
+                pass'''
 
             
 
