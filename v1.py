@@ -232,6 +232,18 @@ st.header('''
 English-To-SQL
 ''')
 
+side_bar = ['None', 'Speech-to-SQL', 'English-to-SQL']
+choice = st.sidebar.selectbox("Menu", side_bar)
+
+if choice==side_bar[1]:
+    url = "https://online-voice-recorder.com/"
+    st.write("You can use this link to record an audio [link](%s)" % url)
+    
+    uploaded_files = st.file_uploader("Choose a .mp3 file", accept_multiple_files=True)
+    
+
+'''
+
 # input = st.text_input('Enter your question in English')
 url = "https://online-voice-recorder.com/"
 st.write("You can use this link to record an audio [link](%s)" % url)
@@ -257,16 +269,16 @@ for uploaded_file in uploaded_files:
             if st.button(label="Generate SQL query"):
                 answer = preprocess(input)
                 st.write(answer)
-                '''
+                
                 try:
                     answer = preprocess(input)
                     st.write(answer)
                 except:
                     st.write('Error')
             else:
-                pass'''
+                pass
 
-            
+'''            
 
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
