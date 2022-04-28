@@ -229,17 +229,17 @@ def audio(audio_file):
 
 # design elements
 st.header('''
-English-To-SQL
+BE Final Project
 ''')
 
 side_bar = ["None", "Speech-to-SQL", "English-to-SQL"]
 choice = st.sidebar.selectbox("Menu", side_bar)
 
 if choice==side_bar[0]:
-    st.write("Sarthak Raut  04  182089")
-    st.write("Preeti Suvarna    21  182113")
-    st.write("Jash Tailor   23  182115")
-    st.write("Abraham Thothiyil 25  182117")
+    st.write("Sarthak Raut       04  182089")
+    st.write("Preeti Suvarna     21  182113")
+    st.write("Jash Tailor        23  182115")
+    st.write("Abraham Thothiyil  25  182117")
 
 if choice==side_bar[1]:
     url = "https://online-voice-recorder.com/"
