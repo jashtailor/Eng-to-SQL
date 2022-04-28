@@ -141,7 +141,7 @@ def transcribe(audio_file):
 
     
 
-    filename = audio_file
+    # filename = audio_file
 
     
     def read_file(audio_file, chunk_size=5242880):
@@ -156,7 +156,7 @@ def transcribe(audio_file):
     headers = {'authorization': api_key}
     response = requests.post('https://api.assemblyai.com/v2/upload',
                              headers=headers,
-                             data=read_file(filename))
+                             data=read_file(audio_file))
 
     audio_url = response.json()['upload_url']
 
