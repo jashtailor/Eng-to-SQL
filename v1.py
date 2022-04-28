@@ -241,6 +241,12 @@ if choice==side_bar[1]:
     
     uploaded_files = st.file_uploader("Choose a .mp3 file", accept_multiple_files=True)
     
+    audio(uploaded_files)
+        
+     if st.button(label="Transcribe .mp3 file"):
+        try:
+            transcribed = transcribe(uploaded_files
+    
 
 '''
 
