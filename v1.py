@@ -241,7 +241,7 @@ if choice==side_bar[0]:
     pid = ["182089", "182113", "182115", "182117"]
     count = 0
     for (x,y,z) in zip(names,roll_nos,pid):
-        if count==3:
+        if count==4:
             break
         else:
             cols = st.columns(3)
@@ -249,13 +249,6 @@ if choice==side_bar[0]:
             cols[1].write(y)
             cols[2].write(z)
             count = count + 1
-    '''
-    st.write("Sarthak Raut", "#", "182089")
-    st.write("\t")
-    st.write("182089")
-    st.write("Preeti Suvarna" + "\t" + "21" + "\t" + "182113")
-    st.write("Jash Tailor        23  182115")
-    st.write("Abraham Thothiyil  25  182117")'''
 
 if choice==side_bar[1]:
     url = "https://online-voice-recorder.com/"
