@@ -293,6 +293,7 @@ if choice==side_bar[2]:
     if st.button(label="Generate SQL query"):
         try:
             answer = preprocess(input)
+            st.write(input)
             st.write(answer)
         except:
             st.write("Error")
