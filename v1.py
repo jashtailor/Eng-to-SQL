@@ -115,28 +115,9 @@ def transcribe(audio_file):
     # f = open("api.txt", "r")
     api_key = '7dceeb758cb7442481d1927aa97a4ad6'
 
-    print('1. API is read ...')
+    # print('1. API is read ...')
 
-    '''
-    # 2. Retrieving audio file from YouTube video
-    from pytube import YouTube
-    import os
-
-    #video = YouTube("https://www.youtube.com/watch?v=mkVjrB8g6mM")
-    video = YouTube(args.i)
-    yt = video.streams.get_audio_only()
-
-    yt.download()
-
-    current_dir = os.getcwd()
-
-    for file in os.listdir(current_dir):
-        if file.endswith(".mp4"):
-            mp4_file = os.path.join(current_dir, file)
-            #print(mp4_file)
-
-    print('2. Audio file has been retrieved from YouTube video')
-    '''
+    
 
     # 3. Upload YouTube audio file to AssemblyAI
 
@@ -161,7 +142,7 @@ def transcribe(audio_file):
 
     audio_url = response.json()['upload_url']
 
-    print('3. YouTube audio file has been uploaded to AssemblyAI')
+    # print('3. YouTube audio file has been uploaded to AssemblyAI')
 
 
     # 4. Transcribe uploaded audio file
@@ -181,7 +162,7 @@ def transcribe(audio_file):
 
     transcript_input_response = requests.post(endpoint, json=json, headers=headers)
 
-    print('4. Transcribing uploaded file')
+    # print('4. Transcribing uploaded file')
 
 
     # 5. Extract transcript ID
@@ -198,7 +179,7 @@ def transcribe(audio_file):
 
     transcript_output_response = requests.get(endpoint, headers=headers)
 
-    print('6. Retrieve transcription results')
+    # print('6. Retrieve transcription results')
 
     # Check if transcription is complete
     
