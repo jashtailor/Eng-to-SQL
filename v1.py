@@ -100,6 +100,7 @@ def preprocess(text):
 
   return translation
 
+@st.cache(suppress_st_warning=True)
 def transcribe(audio_file):
     # import argparse
 
