@@ -97,7 +97,7 @@ def preprocess(text):
     lst2 = [[0]*(46-len(txt_seq)) + txt_seq]
 
   translation = translate_sentence(lst2)
-  st.write(translation)
+  # st.write(translation)
 
   return translation
 
@@ -232,8 +232,14 @@ st.header('''
 English-To-SQL
 ''')
 
-side_bar = ['None', 'Speech-to-SQL', 'English-to-SQL']
+side_bar = ["None", "Speech-to-SQL", "English-to-SQL"]
 choice = st.sidebar.selectbox("Menu", side_bar)
+
+if choice==side_bar[0]:
+    st.write("Sarthak Raut  04  182089")
+    st.write("Preeti Suvarna    21  182113")
+    st.write("Jash Tailor   23  182115")
+    st.write("Abraham Thothiyil 25  182117")
 
 if choice==side_bar[1]:
     url = "https://online-voice-recorder.com/"
@@ -248,5 +254,27 @@ if choice==side_bar[1]:
             try:
                 transcribed = transcribe(uploaded_files)
                 st.write(transcribed)
+                input = st.text_input("Transcribed text:", transcribed)
+                if st.button(label="Generate SQL query"):
+                    try:
+                        answer = preprocess(input)
+                        st.write(answer)
+                    except:
+                        st.write("Error")
             except:
-                st.write('Error in transcribing the .mp3 file please try manually entering the English query')
+                st.write("Error in transcribing the .mp3 file please try manually entering the English query")
+                
+if choice==side_bar[2]:
+    input = st.text_input("Enter your question in English")
+    
+    if st.button(label="Generate SQL query"):
+        try:
+            answer = preprocess(input)
+            st.write(answer)
+        error:
+            st.write("Error")
+    
+    
+    
+    
+    
