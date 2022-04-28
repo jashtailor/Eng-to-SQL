@@ -271,7 +271,7 @@ if choice==side_bar[2]:
         try:
             answer = preprocess(input)
             st.write(answer)
-        error:
+        except:
             st.write("Error")
     
     
