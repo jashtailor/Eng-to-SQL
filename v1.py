@@ -236,10 +236,19 @@ side_bar = ["None", "Speech-to-SQL", "English-to-SQL"]
 choice = st.sidebar.selectbox("Menu", side_bar)
 
 if choice==side_bar[0]:
-    cols = st.columns(3)
-    cols[0].write("Sarthak Raut")
-    cols[1].write("04")
-    cols[2].write("182089")
+    names = ["Sarthak Raut", "Preeti Suvarna", "Jash Tailor", "Abraham Thothiyil"]
+    roll_nos = ["04", "21", "23", "25"]
+    pid = ["182089", "182113", "182115", "182117"]
+    count = 0
+    for (x,y,z) in zip(names,roll_nos,pid):
+        if count==3:
+            break
+        else:
+            cols = st.columns(3)
+            cols[0].write(x)
+            cols[1].write(y)
+            cols[2].write(z)
+            count = count + 1
     '''
     st.write("Sarthak Raut", "#", "182089")
     st.write("\t")
