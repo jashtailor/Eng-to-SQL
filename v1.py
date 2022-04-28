@@ -236,12 +236,17 @@ side_bar = ["None", "Speech-to-SQL", "English-to-SQL"]
 choice = st.sidebar.selectbox("Menu", side_bar)
 
 if choice==side_bar[0]:
+    cols = st.columns(3)
+    cols[0].write("Sarthak Raut")
+    cols[1].write("04")
+    cols[2].write("182089")
+    '''
     st.write("Sarthak Raut", "#", "182089")
     st.write("\t")
     st.write("182089")
     st.write("Preeti Suvarna" + "\t" + "21" + "\t" + "182113")
     st.write("Jash Tailor        23  182115")
-    st.write("Abraham Thothiyil  25  182117")
+    st.write("Abraham Thothiyil  25  182117")'''
 
 if choice==side_bar[1]:
     url = "https://online-voice-recorder.com/"
