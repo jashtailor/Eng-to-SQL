@@ -251,8 +251,6 @@ for uploaded_file in uploaded_files:
                     st.write(answer)
                 except:
                     st.write('Error')
-            else:
-                pass
         except:
             st.write('Error .mp3 file could not be transcribed please manually enter your text')
             input = st.text_input('English question:')
