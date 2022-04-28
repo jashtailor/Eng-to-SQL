@@ -259,19 +259,34 @@ for uploaded_file in uploaded_files:
     audio(uploaded_file)
     
     if st.button(label="Transcribe .mp3 file"):
-        transcribed = transcribe(uploaded_file)
-        
-        input = st.text_input('Transcribed text:', transcribed)
-        
-        if st.button(label="Generate SQL query"):
-            try:
-                answer = preprocess(input)
-                st.write(answer)
-            except:
-                st.write('Error')
-        else:
-            pass
- 
+        try:
+            
+
+            transcribed = transcribe(uploaded_file)
+
+            input = st.text_input('Transcribed text:', transcribed)
+
+            if st.button(label="Generate SQL query"):
+                try:
+                    answer = preprocess(input)
+                    st.write(answer)
+                except:
+                    st.write('Error')
+            else:
+                pass
+        except:
+            st.write('Error')
+            if st.button(label="Generate SQL query"):
+                try:
+                    answer = preprocess(input)
+                    st.write(answer)
+                except:
+                    st.write('Error')
+            else:
+                pass
+
+            
+
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
