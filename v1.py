@@ -144,8 +144,8 @@ def transcribe(audio_file):
     filename = audio_file
 
     
-    def read_file(filename, chunk_size=5242880):
-        with open(filename, 'rb') as _file:
+    def read_file(audio_file, chunk_size=5242880):
+        with open(audio_file, 'rb') as _file:
             while True:
                 data = _file.read(chunk_size)
                 if not data:
