@@ -77,6 +77,8 @@ def translate_sentence(input_seq):
 
     return ' '.join(output_sentence)
 
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 def preprocess(text):
   text1 = text.lower()
   lst1 = text1.split(' ')
@@ -100,6 +102,8 @@ def preprocess(text):
   # st.write(translation)
 
   return translation
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 @st.cache(suppress_st_warning=True)
 def transcribe(audio_file):
@@ -217,7 +221,9 @@ def transcribe(audio_file):
     '''
     
     return transcript_output_response.json()["text"]
-    
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------    
+
 def audio(audio_file):
     audio_bytes = audio_file.read()
 
@@ -232,8 +238,12 @@ st.header('''
 BE Final Project
 ''')
 
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 side_bar = ["None", "Speech-to-SQL", "English-to-SQL"]
 choice = st.sidebar.selectbox("Menu", side_bar)
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 if choice==side_bar[0]:
     names = ["Sarthak Raut", "Preeti Suvarna", "Jash Tailor", "Abraham Thothiyil"]
@@ -249,7 +259,9 @@ if choice==side_bar[0]:
             cols[1].write(y)
             cols[2].write(z)
             count = count + 1
-
+            
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            
 if choice==side_bar[1]:
     url = "https://online-voice-recorder.com/"
     st.write("You can use this link to record an audio [link](%s)" % url)
@@ -273,6 +285,8 @@ if choice==side_bar[1]:
             except:
                 st.write("Error in transcribing the .mp3 file please try manually entering the English query")
                 
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------                
+
 if choice==side_bar[2]:
     input = st.text_input("Enter your question in English")
     
