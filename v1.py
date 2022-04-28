@@ -236,8 +236,8 @@ side_bar = ["None", "Speech-to-SQL", "English-to-SQL"]
 choice = st.sidebar.selectbox("Menu", side_bar)
 
 if choice==side_bar[0]:
-    st.write("Sarthak Raut       04  182089")
-    st.write("Preeti Suvarna     21  182113")
+    st.write("Sarthak Raut" + "\t" + "04" + "\t" + "182089")
+    st.write("Preeti Suvarna" + "\t" + "21" + "\t" + "182113")
     st.write("Jash Tailor        23  182115")
     st.write("Abraham Thothiyil  25  182117")
 
