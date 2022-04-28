@@ -17,6 +17,7 @@ from numpy import zeros
 import json
 import sys
 import time
+from time import sleep
 import requests
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -98,11 +99,6 @@ def preprocess(text):
   translation = translate_sentence(lst2)
 
   return translation
-
-import sys
-import time
-from time import sleep
-import requests
 
 def transcribe(audio_file):
     # import argparse
