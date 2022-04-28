@@ -245,7 +245,7 @@ if choice==side_bar[1]:
         
     if st.button(label="Transcribe .mp3 file"):
         try:
-            transcribed = transcribe(uploaded_files
+            transcribed = transcribe(uploaded_files)
     
 
        
