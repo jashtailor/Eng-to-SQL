@@ -243,9 +243,10 @@ if choice==side_bar[1]:
     
     for uploaded_file in uploaded_files:
         audio(uploaded_file)
-        
-    if st.button(label="Transcribe .mp3 file"):
-        try:
-            transcribed = transcribe(uploaded_files)
-        except:
-            pass
+              
+        if st.button(label="Transcribe .mp3 file"):
+            try:
+                transcribed = transcribe(uploaded_files)
+                st.write(transcribed)
+            except:
+                st.write('Error in transcribing the .mp3 file please try manually entering the English query')
