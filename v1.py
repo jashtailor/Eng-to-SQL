@@ -275,7 +275,8 @@ for uploaded_file in uploaded_files:
             else:
                 pass
         except:
-            st.write('Error')
+            st.write('Error .mp3 file could not be transcribed')
+            input = st.text_input('English question:', 'Please manually enter your text')
             if st.button(label="Generate SQL query"):
                 try:
                     answer = preprocess(input)
