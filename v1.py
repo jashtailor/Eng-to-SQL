@@ -235,7 +235,7 @@ def audio(audio_file):
 
 # design elements
 st.header('''
-BE Final Project
+Speech-to-SQL
 ''')
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -250,6 +250,7 @@ if choice==side_bar[0]:
     roll_nos = ["04", "21", "23", "25"]
     pid = ["182089", "182113", "182115", "182117"]
     count = 0
+    st.write("Made by:")
     for (x,y,z) in zip(names,roll_nos,pid):
         if count==4:
             break
